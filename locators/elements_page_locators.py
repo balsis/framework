@@ -1,4 +1,3 @@
-
 class TextBoxPageLocators:
     # fields
     FULL_NAME = ('xpath', "//input[@id='userName']")
@@ -13,3 +12,9 @@ class TextBoxPageLocators:
     CREATED_EMAIL = ('xpath', "//p[@id='email']")
     CREATED_CURRENT_ADDRESS = ('xpath', "//p[@id='currentAddress']")
     CREATED_PERMANENT_ADDRESS = ('xpath', "//p[@id='permanentAddress']")
+
+
+class CheckBoxPageLocators:
+    EXPAND_ALL_BUTTON = ("xpath", "//button[@title='Expand all']")
+    ITEM_LIST = ("xpath", "//span[@class='rct-title']")
+    CHECKED_ITEMS = ("css", "svg[class='rct-icon rct-icon-check']")
