@@ -21,12 +21,15 @@ class TextBoxPage(BasePage):
         self.element_is_visible(self.locators.PERMANENT_ADDRESS).send_keys(permanent_address)
         self.element_is_visible(self.locators.SUBMIT).click()
         return full_name, email, current_address, permanent_address
+
     def check_filled_form(self):
         full_name = self.element_is_present(self.locators.CREATED_FULL_NAME).text.split(':')[1]
         email = self.element_is_present(self.locators.CREATED_EMAIL).text.split(':')[1]
         current_address = self.element_is_present(self.locators.CREATED_CURRENT_ADDRESS).text.split(':')[1]
         permanent_address = self.element_is_present(self.locators.CREATED_PERMANENT_ADDRESS).text.split(':')[1]
         return full_name, email, current_address, permanent_address
+
+
 class CheckBoxPage(BasePage):
     locators = CheckBoxPageLocators()
 
@@ -37,15 +40,18 @@ class CheckBoxPage(BasePage):
         item_list = self.elements_are_visible(self.locators.ITEM_LIST)
         count = 21
         while count != 0:
-            item = item_list[random.randint(1,15)]
+            item = item_list[random.randint(1, 15)]
             if count > 0:
                 self.go_to_element(item)
                 item.click()
                 count -= 1
-                print(item.text)
+                # print(item.text)
             else:
                 break
 
-        # for item in item_list:
-        #     self.go_to_element(item)
-        #     item.click()
+    def get_checked_checkboxes(self):
+        checked_list = self.elements_are_present(self.locators.CHECKED_ITEMS)
+        data = []
+        for box in checked_list:
+            title_item = box.find_element("xpath", self.locators.TITLE_ITEM)
+            print(title_item.text)

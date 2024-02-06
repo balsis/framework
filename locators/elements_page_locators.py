@@ -11,10 +11,14 @@ class TextBoxPageLocators:
     CREATED_FULL_NAME = ('xpath', "//p[@id='name']")
     CREATED_EMAIL = ('xpath', "//p[@id='email']")
     CREATED_CURRENT_ADDRESS = ('xpath', "//p[@id='currentAddress']")
-    CREATED_PERMANENT_ADDRESS = ('xpath', "//p[@id='permanentAddress']")
+    CREATED_PERMANENT_ADDRESS = "//p[@id='permanentAddress']"
 
 
 class CheckBoxPageLocators:
     EXPAND_ALL_BUTTON = ("xpath", "//button[@title='Expand all']")
     ITEM_LIST = ("xpath", "//span[@class='rct-title']")
-    CHECKED_ITEMS = ("css", "svg[class='rct-icon rct-icon-check']")
+    CHECKED_ITEMS = ("xpath", "//*[contains(@class, 'rct-icon-check')]")
+    TITLE_ITEM = "//span[@class='rct-text']" # xpath
+
+
+
