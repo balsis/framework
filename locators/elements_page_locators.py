@@ -20,6 +20,7 @@ class CheckBoxPageLocators:
     CHECKED_ITEMS = ("xpath", "//span/*[contains(@class, 'rct-icon-check')]")
     #TITLE_ITEM = "//span[@class='rct-text']" # xpath
     TITLE_ITEM = ".// ancestor::span[@class ='rct-text']"
+    OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
 
 

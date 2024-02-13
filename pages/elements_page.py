@@ -45,7 +45,6 @@ class CheckBoxPage(BasePage):
                 self.go_to_element(item)
                 item.click()
                 count -= 1
-                # print(item.text)
             else:
                 break
 
@@ -55,4 +54,13 @@ class CheckBoxPage(BasePage):
         data = []
         for box in checked_list:
             title_item = box.find_element("xpath", self.locators.TITLE_ITEM)
-            print(title_item.text)
+            # print(title_item.text)
+            data.append(title_item.text)
+        return str(data).replace(" ", "").replace(".doc", "").lower()
+
+    def get_output_result(self):
+        result_list = self.elements_are_present(self.locators.OUTPUT_RESULT)
+        data = []
+        for item in result_list:
+            data.append(item.text)
+        return str(data).replace(" ", "").lower()
