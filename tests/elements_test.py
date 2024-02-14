@@ -23,3 +23,8 @@ class TestCheckBox:
         print(input_checkbox)
         print(output_result)
         assert input_checkbox == output_result, "Checkboxes have not been selected"
+class TestRadioButton:
+
+    def test_radio_button(self, driver):
+        radio_button_page = RadioButtonPage(driver, "https://demoqa.com/radio-button")
+        radio_button_page.open()

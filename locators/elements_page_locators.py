@@ -18,9 +18,13 @@ class CheckBoxPageLocators:
     EXPAND_ALL_BUTTON = ("xpath", "//button[@title='Expand all']")
     ITEM_LIST = ("xpath", "//span[@class='rct-title']")
     CHECKED_ITEMS = ("xpath", "//span/*[contains(@class, 'rct-icon-check')]")
-    #TITLE_ITEM = "//span[@class='rct-text']" # xpath
     TITLE_ITEM = ".// ancestor::span[@class ='rct-text']"
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
+class RadioButtonPageLocators:
+    YES_RADIOBUTTON = ("xpath", "//input[@id='yesRadio']")
+    IMPRESSIVE_RADIOBUTTON = ("xpath", "//input[@id='impressiveRadio']")
+    NO_RADIOBUTTON = ("xpath", "//input[@id='noRadio']")
+    OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
 
