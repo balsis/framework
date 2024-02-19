@@ -21,10 +21,9 @@ class CheckBoxPageLocators:
     TITLE_ITEM = ".// ancestor::span[@class ='rct-text']"
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
+
 class RadioButtonPageLocators:
-    YES_RADIOBUTTON = ("xpath", "//div[contains(@class, 'custom-control')]/input[@id='yesRadio']")
-    IMPRESSIVE_RADIOBUTTON = ("xpath", "//input[@id='impressiveRadio']")
-    NO_RADIOBUTTON = ("xpath", "//input[@id='noRadio']")
+    YES_RADIOBUTTON = ("xpath", "//label[@class = 'custom-control-label' and @for='yesRadio']")
+    IMPRESSIVE_RADIOBUTTON = ("xpath", "//label[@class = 'custom-control-label' and @for='impressiveRadio']")
+    NO_RADIOBUTTON = ("xpath", "//label[@class = 'custom-control-label' and @for='noRadio']")
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
-
-
