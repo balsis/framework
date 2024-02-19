@@ -50,7 +50,7 @@ class CheckBoxPage(BasePage):
 
     def get_checked_checkboxes(self):
         checked_list = self.elements_are_present(self.locators.CHECKED_ITEMS)
-        #print(checked_list)
+        # print(checked_list)
         data = []
         for box in checked_list:
             title_item = box.find_element("xpath", self.locators.TITLE_ITEM)
@@ -65,12 +65,18 @@ class CheckBoxPage(BasePage):
             data.append(item.text)
         return str(data).replace(" ", "").lower()
 
+
 class RadioButtonPage(BasePage):
     locators = RadioButtonPageLocators()
+
     def click_on_the_radio_button(self, choice):
-        choice = {
-            "yes":self.locators.YES_RADIOBUTTON,
-            "impressive":self.locators.IMPRESSIVE_RADIOBUTTON,
+        choices = {
+            "yes": self.locators.YES_RADIOBUTTON,
+            "impressive": self.locators.IMPRESSIVE_RADIOBUTTON,
             "no": self.locators.NO_RADIOBUTTON
-                  }
-        radio = self.elements_are_visible(choice[choice]).click()
+        }
+        radio = self.element_is_visible(choices[choice]).click()
+
+    def get_output_result(self):
+        return self.element_is_present(self.locators.OUTPUT_RESULT).text
+

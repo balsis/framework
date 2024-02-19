@@ -22,7 +22,7 @@ class CheckBoxPageLocators:
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
 class RadioButtonPageLocators:
-    YES_RADIOBUTTON = ("xpath", "//input[@id='yesRadio']")
+    YES_RADIOBUTTON = ("xpath", "//div[contains(@class, 'custom-control')]/input[@id='yesRadio']")
     IMPRESSIVE_RADIOBUTTON = ("xpath", "//input[@id='impressiveRadio']")
     NO_RADIOBUTTON = ("xpath", "//input[@id='noRadio']")
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
