@@ -1,7 +1,8 @@
 import random
 
 from generator.generator import generated_person
-from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators
+from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators, \
+    WebTablePageLocators
 from pages.base_page import BasePage
 
 
@@ -80,3 +81,6 @@ class RadioButtonPage(BasePage):
     def get_output_result(self):
         return self.element_is_present(self.locators.OUTPUT_RESULT).text
 
+
+class WebTablePage(BasePage):
+    locators = WebTablePageLocators()
