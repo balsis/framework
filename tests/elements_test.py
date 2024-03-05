@@ -26,7 +26,7 @@ class TestCheckBox:
 class TestRadioButton:
 
     def test_radio_button(self, driver):
-        radio_button_page = RadioButtonPage(driver, "https://demoqa.com/webtables")
+        radio_button_page = RadioButtonPage(driver, "https://demoqa.com/radio-button")
         radio_button_page.open()
         radio_button_page.click_on_the_radio_button("yes")
         output_yes = radio_button_page.get_output_result()
@@ -40,5 +40,7 @@ class TestRadioButton:
 
 class TestWebTable:
     def test_web_table_add_person(self,driver):
-        web_table_page = WebTablePage(driver, "https://demoqa.com/radio-button")
+        web_table_page = WebTablePage(driver, "https://demoqa.com/webtables")
         web_table_page.open()
+        web_table_page.add_new_person()
+        time.sleep(3)

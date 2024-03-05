@@ -29,11 +29,13 @@ class RadioButtonPageLocators:
     OUTPUT_RESULT = ("xpath", "//span[@class='text-success']")
 
 class WebTablePageLocators:
-    ADD_BUTTON = (("xpath", ""))
-    FIRSTNAME_INPUT = (("xpath", ""))
-    LASTNAME_INPUT = (("xpath", ""))
-    EMAIL_INPUT = (("xpath", ""))
-    AGE_INPUT = (("xpath", ""))
-    SALARY_INPUT = (("xpath", ""))
-    DEPARTMENT_INPUT = (("xpath", ""))
-    SUBMIT = (("xpath", ""))
+    ADD_BUTTON = ("xpath", "//button[@id='addNewRecordButton']")
+    FIRSTNAME_INPUT = ("xpath", "//input[@id='firstName']")
+    LASTNAME_INPUT = ("xpath", "//input[@id='lastName']")
+    EMAIL_INPUT = ("xpath", "//input[@id='userEmail']")
+    AGE_INPUT = ("xpath", "//input[@id='age']")
+    SALARY_INPUT = ("xpath", "//input[@id='salary']")
+    DEPARTMENT_INPUT = ("xpath", "//input[@id='department']")
+    SUBMIT = ("xpath", "//button[@id='submit']")
+    ROW = ("xpath", "//div[@class ='rt-tr-group']")
+
