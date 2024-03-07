@@ -37,5 +37,9 @@ class WebTablePageLocators:
     SALARY_INPUT = ("xpath", "//input[@id='salary']")
     DEPARTMENT_INPUT = ("xpath", "//input[@id='department']")
     SUBMIT = ("xpath", "//button[@id='submit']")
-    ROW = ("xpath", "//div[@class ='rt-tr-group']")
+
+    PEOPLE_LIST = ("xpath", "//div[@class ='rt-tr-group']")
+    SEARCH_INPUT = ("xpath", "//input[@id='searchBox']")
+    DELETE_BUTTON = ("xpath", "//span[@title='Delete']")
+    ROW_PARENT = ".// ancestor::div[@class ='rt-tr-group']"
 

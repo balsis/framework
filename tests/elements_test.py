@@ -23,6 +23,8 @@ class TestCheckBox:
         print(input_checkbox)
         print(output_result)
         assert input_checkbox == output_result, "Checkboxes have not been selected"
+
+
 class TestRadioButton:
 
     def test_radio_button(self, driver):
@@ -32,15 +34,28 @@ class TestRadioButton:
         output_yes = radio_button_page.get_output_result()
         radio_button_page.click_on_the_radio_button("impressive")
         output_impressive = radio_button_page.get_output_result()
-        #radio_button_page.click_on_the_radio_button("no")
-        #output_no = radio_button_page.get_output_result()
+        # radio_button_page.click_on_the_radio_button("no")
+        # output_no = radio_button_page.get_output_result()
         assert output_yes == 'Yes', "'Yes' have not be selected"
         assert output_impressive == 'Impressive', "'Impressive' have not be selected"
-       # assert output_no == 'No', "'No' have not be selected. It's bug"
+    # assert output_no == 'No', "'No' have not be selected. It's bug"
+
 
 class TestWebTable:
-    def test_web_table_add_person(self,driver):
+    def test_web_table_add_person(self, driver):
         web_table_page = WebTablePage(driver, "https://demoqa.com/webtables")
         web_table_page.open()
-        web_table_page.add_new_person()
-        time.sleep(3)
+        new_person = web_table_page.add_new_person()
+        result = web_table_page.check_added_person()
+
+        assert new_person in result
+
+    def test_web_table_search_person(self, driver):
+        web_table_page = WebTablePage(driver, "https://demoqa.com/webtables")
+        web_table_page.open()
+        key_word = web_table_page.add_new_person()[0]
+        web_table_page.search_person(key_word)
+        table_result = web_table_page.check_search_person()
+        print(key_word)
+        print(table_result)
+        assert key_word in table_result
