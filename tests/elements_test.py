@@ -7,8 +7,13 @@ class Test_Elements:
     def test_text_box(self, driver):
         text_box_page = TextBoxPage(driver, "https://demoqa.com/text-box")
         text_box_page.open()
+        time.sleep(3)
         input_data = text_box_page.fill_all_fields()
+        print(input_data)
+        time.sleep(3)
         output_data = text_box_page.check_filled_form()
+        print(output_data)
+        time.sleep(3)
         assert input_data == output_data, "the data doesn't match"
 
 
@@ -56,6 +61,10 @@ class TestWebTable:
         key_word = web_table_page.add_new_person()[0]
         web_table_page.search_person(key_word)
         table_result = web_table_page.check_search_person()
-        print(key_word)
-        print(table_result)
+        # print(key_word)
+        # print(table_result)
         assert key_word in table_result
+
+    def test_web_table_update_person_info(self, driver):
+        web_table_page = WebTablePage(driver, "https://demoqa.com/webtables")
+        web_table_page.open()
