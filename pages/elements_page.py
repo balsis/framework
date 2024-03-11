@@ -1,4 +1,5 @@
 import random
+import time
 
 from generator.generator import generated_person
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators, \
@@ -121,3 +122,12 @@ class WebTablePage(BasePage):
         delete_button = self.element_is_present(self.locators.DELETE_BUTTON)
         row = delete_button.find_element("xpath", self.locators.ROW_PARENT)
         return row.text.splitlines()
+
+    def update_person_info(self):
+        person_info = next(generated_person())
+        age = person_info.age
+        self.element_is_visible(self.locators.EDIT_BUTTON).click()
+        self.element_is_visible(self.locators.AGE_INPUT).clear()
+        self.element_is_visible(self.locators.AGE_INPUT).send_keys(age)
+        self.element_is_visible(self.locators.SUBMIT).click()
+        return str(age)

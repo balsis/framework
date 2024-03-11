@@ -37,8 +37,11 @@ class WebTablePageLocators:
     DEPARTMENT_INPUT = ("xpath", "//input[@id='department']")
     SUBMIT = ("xpath", "//button[@id='submit']")
 
+    # table
     PEOPLE_LIST = ("xpath", "//div[@class ='rt-tr-group']")
     SEARCH_INPUT = ("xpath", "//input[@id='searchBox']")
     DELETE_BUTTON = ("xpath", "//span[@title='Delete']")
     ROW_PARENT = ".// ancestor::div[@class ='rt-tr-group']"
 
+    # update
+    EDIT_BUTTON = ("xpath", "//span[@title='Edit']")
