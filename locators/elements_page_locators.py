@@ -45,3 +45,6 @@ class WebTablePageLocators:
 
     # update
     EDIT_BUTTON = ("xpath", "//span[@title='Edit']")
+    NO_ROW_FOUND = ("xpath", "//div[contains(text(),'No rows found')]")
+
+    ROW_PER_PAGE = ("xpath", "//select[@aria-label='rows per page']")
