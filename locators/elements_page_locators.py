@@ -48,3 +48,11 @@ class WebTablePageLocators:
     NO_ROW_FOUND = ("xpath", "//div[contains(text(),'No rows found')]")
 
     ROW_PER_PAGE = ("xpath", "//select[@aria-label='rows per page']")
+
+class ButtonsPageLocators:
+    DOUBLE_CLICK_BUTTON = ("xpath", "//button[@id='doubleClickBtn']")
+    RIGHT_CLICK_BUTTON = ("xpath", "//button[@id='rightClickBtn']")
+    CLICK_ME_BUTTON = ("xpath", "//button[text() ='Click Me']")
+    DOUBLE_CLICK_MESSAGE = ("xpath", "//p[@id='doubleClickMessage']")
+    RIGHT_CLICK_MESSAGE = ("xpath", "//p[@id='rightClickMessage']")
+    CLICK_ME_MESSAGE = ("xpath", "//p[@id='dynamicClickMessage']")

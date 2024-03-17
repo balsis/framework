@@ -1,6 +1,6 @@
 import time
 
-from pages.elements_page import TextBoxPage, CheckBoxPage, RadioButtonPage, WebTablePage
+from pages.elements_page import TextBoxPage, CheckBoxPage, RadioButtonPage, WebTablePage, ButtonsPage
 
 
 class Test_Elements:
@@ -84,3 +84,24 @@ class TestWebTable:
         web_table_page.open()
         count = web_table_page.select_up_to_some_rows()
         assert count == [5, 10, 20, 25, 50, 100]
+
+class TestButtonPage:
+
+    def test_different_click_on_the_buttons(self, driver):
+        button_page = ButtonsPage(driver, "https://demoqa.com/buttons")
+        button_page.open()
+        double = button_page.click_on_different_button('double')
+        right = button_page.click_on_different_button('right')
+        click = button_page.click_on_different_button('click')
+        assert double == 'You have done a double click'
+        assert right == 'You have done a right click'
+        assert click == 'You have done a dynamic click'
+
+class TestLinksPage:
+    def test_check_link(self,driver):
+        links_page = LinksPage(driver, "https://demoqa.com/links")
+        links_page.open()
+
+    def test_broken_link(self, driver):
+        links_page = LinksPage(driver, "https://demoqa.com/links")
+        links_page.open()
