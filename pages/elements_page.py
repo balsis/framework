@@ -176,3 +176,4 @@ class ButtonsPage(BasePage):
 
 
 class LinksPage(BasePage):
+    locators = LinksPageLocators()

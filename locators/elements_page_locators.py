@@ -56,3 +56,5 @@ class ButtonsPageLocators:
     DOUBLE_CLICK_MESSAGE = ("xpath", "//p[@id='doubleClickMessage']")
     RIGHT_CLICK_MESSAGE = ("xpath", "//p[@id='rightClickMessage']")
     CLICK_ME_MESSAGE = ("xpath", "//p[@id='dynamicClickMessage']")
+
+class LinksPageLocators:
