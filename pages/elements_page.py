@@ -2,7 +2,7 @@ import random
 import time
 
 import requests
-from selenium.webdriver.common.by import By
+import selenium.webdriver.common.by
 
 from generator.generator import generated_person
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators, \
@@ -148,7 +148,7 @@ class WebTablePage(BasePage):
             count_row_button = self.element_is_visible(self.locators.ROW_PER_PAGE)
             self.go_to_element(count_row_button)
             count_row_button.click()
-            self.element_is_visible((By.CSS_SELECTOR, f'option[value="{x}"]')).click()
+            self.element_is_visible((selenium.webdriver.common.by.By.CSS_SELECTOR, f'option[value="{x}"]')).click()
             data.append(self.check_count_rows())
         return data
 
