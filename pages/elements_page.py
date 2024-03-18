@@ -1,12 +1,13 @@
+import os
 import random
 import time
 
 import requests
 import selenium.webdriver.common.by
 
-from generator.generator import generated_person
+from generator.generator import generated_person, generated_file
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators, \
-    WebTablePageLocators, ButtonsPageLocators, LinksPageLocators
+    WebTablePageLocators, ButtonsPageLocators, LinksPageLocators, UploadAndDownloadLocators
 from pages.base_page import BasePage
 
 
@@ -177,8 +178,8 @@ class ButtonsPage(BasePage):
 
 
 class LinksPage(BasePage):
-
     locators = LinksPageLocators()
+
     def check_new_tab_simple_link(self):
         simple_link = self.element_is_visible(self.locators.SIMPLE_LINK)
         link_href = simple_link.get_attribute('href')
@@ -189,7 +190,7 @@ class LinksPage(BasePage):
             url = self.driver.current_url
             return link_href, url
         else:
-            return link_href, request.status_code # переписать на try-except
+            return link_href, request.status_code  # переписать на try-except
 
     def check_broken_link(self, url):
         request = requests.get(url)
@@ -197,3 +198,15 @@ class LinksPage(BasePage):
             self.element_is_present((self.locators.BAD_REQUEST)).click()
         else:
             return request.status_code
+
+
+class UploadAndDownloadPage(BasePage):
+    locators = UploadAndDownloadLocators()
+
+    def upload_file(self):
+        file_name_full, path = generated_file()
+        self.element_is_present(self.locators.UPLOAD_FILE).send_keys(path)
+        os.remove(path)
+        result = self.element_is_present(self.locators.UPLOADED_FILE_PATH).text.split("\\")[-1]
+        file_name = file_name_full.split("/")[-1]
+        return file_name, result

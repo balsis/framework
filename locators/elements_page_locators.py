@@ -60,3 +60,7 @@ class ButtonsPageLocators:
 class LinksPageLocators:
     SIMPLE_LINK = ("xpath", "(//a[@id='simpleLink'])")
     BAD_REQUEST = ("xpath", "(//a[@id='bad-request'])")
+
+class UploadAndDownloadLocators:
+    UPLOAD_FILE = ("xpath", "//input[@id='uploadFile']")
+    UPLOADED_FILE_PATH = ("xpath", "//p[@id='uploadedFilePath']")
