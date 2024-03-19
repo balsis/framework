@@ -64,3 +64,5 @@ class LinksPageLocators:
 class UploadAndDownloadLocators:
     UPLOAD_FILE = ("xpath", "//input[@id='uploadFile']")
     UPLOADED_FILE_PATH = ("xpath", "//p[@id='uploadedFilePath']")
+
+    DOWNLOAD_FILE = ("xpath", "//a[@id='downloadButton']")

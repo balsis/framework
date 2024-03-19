@@ -123,4 +123,5 @@ class TestUploadAndDownload:
     def test_download_file(self, driver):
         upload_and_download_page = UploadAndDownloadPage(driver, "https://demoqa.com/upload-download")
         upload_and_download_page.open()
-        pass
+        check = upload_and_download_page.download_file()
+        assert check is True
