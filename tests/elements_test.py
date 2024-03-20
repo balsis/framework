@@ -2,7 +2,7 @@ import os
 import time
 
 from pages.elements_page import TextBoxPage, CheckBoxPage, RadioButtonPage, WebTablePage, ButtonsPage, LinksPage, \
-    UploadAndDownloadPage
+    UploadAndDownloadPage, DynamicPropertiesPage
 
 
 class Test_Elements:
@@ -68,7 +68,7 @@ class TestWebTable:
         web_table_page.open()
         lastname = web_table_page.add_new_person()[1]
         web_table_page.search_person(lastname)
-        age = web_table_page.update_person_info() #
+        age = web_table_page.update_person_info()  #
         row = web_table_page.check_search_person()
         assert age in row
 
@@ -87,6 +87,7 @@ class TestWebTable:
         count = web_table_page.select_up_to_some_rows()
         assert count == [5, 10, 20, 25, 50, 100]
 
+
 class TestButtonPage:
 
     def test_different_click_on_the_buttons(self, driver):
@@ -99,12 +100,14 @@ class TestButtonPage:
         assert right == 'You have done a right click'
         assert click == 'You have done a dynamic click'
 
+
 class TestLinksPage:
-    def test_check_link(self,driver):
+    def test_check_link(self, driver):
         links_page = LinksPage(driver, "https://demoqa.com/links")
         links_page.open()
         href_link, current_url = links_page.check_new_tab_simple_link()
         print(href_link, current_url)
+
     def test_broken_link(self, driver):
         links_page = LinksPage(driver, "https://demoqa.com/links")
         links_page.open()
@@ -125,3 +128,13 @@ class TestUploadAndDownload:
         upload_and_download_page.open()
         check = upload_and_download_page.download_file()
         assert check is True
+
+
+class TestDynamicProperties:
+
+    def test_dynamic_properties(self, driver):
+        dynamic_properties_page = DynamicPropertiesPage(driver, "https://demoqa.com/dynamic-properties")
+        dynamic_properties_page.open()
+        before, after = dynamic_properties_page.check_changed_of_color()
+        assert before != after
+
