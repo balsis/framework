@@ -5,6 +5,8 @@ import time
 
 import requests
 import selenium.webdriver.common.by
+from selenium.common.exceptions import TimeoutException
+
 
 from generator.generator import generated_person, generated_file
 from locators.elements_page_locators import TextBoxPageLocators, CheckBoxPageLocators, RadioButtonPageLocators, \
@@ -235,5 +237,9 @@ class DynamicPropertiesPage(BasePage):
         color_button_after = color_button.value_of_css_property("color")
         return color_button_before,color_button_after
 
-
-
+    def check_appear_of_button(self):
+        try:
+            self.element_is_visible(self.locators.VISIBLE_AFTER_BUTTON, 6)
+        except TimeoutException:
+            return False
+        return True
