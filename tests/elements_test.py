@@ -143,3 +143,9 @@ class TestDynamicProperties:
         dynamic_properties_page.open()
         appear = dynamic_properties_page.check_appear_of_button()
         assert appear is True
+
+    def test_enable_button(self, driver):
+        dynamic_properties_page = DynamicPropertiesPage(driver, "https://demoqa.com/dynamic-properties")
+        dynamic_properties_page.open()
+        enable = dynamic_properties_page.check_enable_button()
+        assert enable is True
