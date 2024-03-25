@@ -106,7 +106,7 @@ class TestLinksPage:
         links_page = LinksPage(driver, "https://demoqa.com/links")
         links_page.open()
         href_link, current_url = links_page.check_new_tab_simple_link()
-        print(href_link, current_url)
+        assert href_link == current_url
 
     def test_broken_link(self, driver):
         links_page = LinksPage(driver, "https://demoqa.com/links")
