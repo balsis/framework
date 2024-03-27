@@ -1,6 +1,6 @@
 import time
 
-from pages.alerts_frame_windows_page import BrowserWindowsPage, AlertPage
+from pages.alerts_frame_windows_page import BrowserWindowsPage, AlertPage, FramePage
 
 
 class TestBrowserWindow:
@@ -40,3 +40,12 @@ class TestAlertsPage:
         alert_page.open()
         alert_text = alert_page.check_prompt_alert()
         assert alert_text == "You entered test"
+
+class TestFramesPage:
+    def test_frames(self, driver):
+        frame_page = FramePage(driver, "https://demoqa.com/frames")
+        frame_page.open()
+        result1 = frame_page.check_frame('frame1')
+        result2 = frame_page.check_frame('frame2')
+        assert result1 == ['This is a sample page', '500px', '350px']
+        assert result2 == ['This is a sample page', '100px', '100px']
