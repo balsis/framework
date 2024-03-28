@@ -25,3 +25,14 @@ class NestedFramePageLocators:
 
     PARENT_FRAME_TEXT = ("xpath", "//body[contains(text(),'Parent frame')]")
     CHILD_FRAME_TEXT = ("xpath", "//p[contains(text(),'Child Iframe')]")
+
+class ModalDialogsPageLocators:
+    SMALL_NODAL = ("xpath", "//button[@id='showSmallModal']")
+    CLOSE_SMALL_BUTTON = ("xpath", "//button[@id='closeSmallModal']")
+    SMALL_MODAL_TITLE = ("xpath", "//div[@class='modal-title h4']")
+    SMALL_MODAL_BODY = ("xpath", "//div[@class='modal-body']")
+
+    LARGE_MODAL = ("xpath", "//button[@id='showLargeModal']")
+    CLOSE_LARGE_BUTTON = ("xpath", "//button[@id='closeLargeModal']")
+    LARGE_MODAL_TITLE = ("xpath", "//div[@class='modal-title h4']")
+    LARGE_MODAL_BODY = ("xpath", "//div[@class='modal-body']/p")
