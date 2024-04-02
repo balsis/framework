@@ -1,6 +1,6 @@
 import time
 
-from pages.widgets_page import AccordianPage, AutoCompletePage
+from pages.widgets_page import AccordianPage, AutoCompletePage, DatePickerPage
 
 
 class TestAccordianPage:
@@ -35,3 +35,8 @@ class TestAutoCompletePage:
         color = autocomplete_page.fill_input_single()
         color_result = autocomplete_page.check_color_in_single()
         assert color == color_result
+
+class TestDatePickerPage:
+    def test_change_date(self, driver):
+        date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
+        date_picker_page.open()

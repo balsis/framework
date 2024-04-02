@@ -2,7 +2,7 @@ import time
 import random
 
 from generator.generator import generated_color
-from locators.widgets_locators import AccordianPageLocators, AutoCompletePageLocators
+from locators.widgets_locators import AccordianPageLocators, AutoCompletePageLocators, DatePickerPageLocators
 from pages.base_page import BasePage
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Keys
@@ -65,3 +65,6 @@ class AutoCompletePage(BasePage):
     def check_color_in_single(self):
         color = self.element_is_visible(self.locators.SINGLE_VALUE)
         return color.text
+
+class DatePickerPage(BasePage):
+    locators = DatePickerPageLocators()
