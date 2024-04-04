@@ -14,6 +14,7 @@ class TestAccordianPage:
         assert second_title == 'Where does it come from?' and second_content > 0, 'Incorrect title or missing text'
         assert third_title == 'Why do we use it?' and third_content > 0, 'Incorrect title or missing text'
 
+
 class TestAutoCompletePage:
     def test_fill_multi_autocomplete(self, driver):
         autocomplete_page = AutoCompletePage(driver, "https://demoqa.com/auto-complete")
@@ -36,7 +37,17 @@ class TestAutoCompletePage:
         color_result = autocomplete_page.check_color_in_single()
         assert color == color_result
 
+
 class TestDatePickerPage:
     def test_change_date(self, driver):
         date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
         date_picker_page.open()
+        value_date_before,  value_date_after = date_picker_page.select_date()
+        assert value_date_after != value_date_before
+
+    def test_change_date_and_time(self, driver):
+        date_picker_page = DatePickerPage(driver, 'https://demoqa.com/date-picker')
+        date_picker_page.open()
+        value_date_before,  value_date_after = date_picker_page.select_date_and_time()
+        # assert value_date_after != value_date_before
+        print(value_date_before, value_date_after)
