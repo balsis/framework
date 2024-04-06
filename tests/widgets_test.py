@@ -1,6 +1,7 @@
 import time
 
-from pages.widgets_page import AccordianPage, AutoCompletePage, DatePickerPage, SliderPage, ProgressBarPage, TabsPage
+from pages.widgets_page import AccordianPage, AutoCompletePage, DatePickerPage, SliderPage, ProgressBarPage, TabsPage, \
+    ToolTipsPage
 
 
 class TestAccordianPage:
@@ -51,29 +52,39 @@ class TestDatePickerPage:
         value_date_before, value_date_after = date_picker_page.select_date_and_time()
         assert value_date_after != value_date_before
 
-    class TestSliderPage:
-        def test_slider(self, driver):
-            slider = SliderPage(driver, 'https://demoqa.com/slider')
-            slider.open()
-            value_before, value_after = slider.change_slider_value()
-            assert value_after != value_before
+class TestSliderPage:
+    def test_slider(self, driver):
+        slider = SliderPage(driver, 'https://demoqa.com/slider')
+        slider.open()
+        value_before, value_after = slider.change_slider_value()
+        assert value_after != value_before
 
-    class TestProgressBarPage:
-        def test_progress_bar(self, driver):
-            progress_bar = ProgressBarPage(driver, 'https://demoqa.com/progress-bar')
-            progress_bar.open()
-            value_before, value_after = progress_bar.change_progress_bar_value()
-            assert value_before < value_after
+class TestProgressBarPage:
+    def test_progress_bar(self, driver):
+        progress_bar = ProgressBarPage(driver, 'https://demoqa.com/progress-bar')
+        progress_bar.open()
+        value_before, value_after = progress_bar.change_progress_bar_value()
+        assert value_before < value_after
 
-    class TestTabsPage:
-        def test_tabs(self, driver):
-            tabs = TabsPage(driver, 'https://demoqa.com/tabs')
-            tabs.open()
-            what_button, what_content = tabs.check_tabs('what')
-            origin_button, origin_content = tabs.check_tabs('origin')
-            use_button, use_content = tabs.check_tabs('use')
-            # more_button, more_content = tabs.check_tabs('more')
-            assert what_button == 'What' and what_content != 0
-            assert origin_button == 'Origin' and origin_content != 0
-            assert use_button == 'Use' and use_content != 0
-            # assert more_button == 'More' and what_content != 0
+class TestTabsPage:
+    def test_tabs(self, driver):
+        tabs = TabsPage(driver, 'https://demoqa.com/tabs')
+        tabs.open()
+        what_button, what_content = tabs.check_tabs('what')
+        origin_button, origin_content = tabs.check_tabs('origin')
+        use_button, use_content = tabs.check_tabs('use')
+        # more_button, more_content = tabs.check_tabs('more')
+        assert what_button == 'What' and what_content != 0
+        assert origin_button == 'Origin' and origin_content != 0
+        assert use_button == 'Use' and use_content != 0
+        # assert more_button == 'More' and what_content != 0
+
+class TestToolTips:
+    def test_tool_tips(self, driver):
+        tool_tips_page = ToolTipsPage(driver, 'https://demoqa.com/tool-tips')
+        tool_tips_page.open()
+        button_text, input_text, contrary_text, section_text = tool_tips_page.check_tool_tips()
+        assert button_text == 'You hovered over the Button', 'hover missing or incorrect content'
+        assert input_text == 'You hovered over the text field', 'hover missing or incorrect content'
+        assert contrary_text == 'You hovered over the Contrary', 'hover missing or incorrect content'
+        assert section_text == 'You hovered over the 1.10.32', 'hover missing or incorrect content'

@@ -3,7 +3,7 @@ import random
 
 from generator.generator import generated_color, generated_date
 from locators.widgets_locators import AccordianPageLocators, AutoCompletePageLocators, DatePickerPageLocators, \
-    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators
+    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators, ToolTipsPageLocators
 from pages.base_page import BasePage
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Keys
@@ -157,3 +157,21 @@ class TabsPage(BasePage):
         button.click()
         what_content = self.element_is_visible(tabs[name_tab]['content']).text
         return button.text, len(what_content)
+
+class ToolTipsPage(BasePage):
+    locators = ToolTipsPageLocators()
+
+    def get_text_from_tips(self, hover, wait):
+        element = self.element_is_present(hover)
+        self.action_move_to_element(element)
+        time.sleep(1)
+        tool_tip_text = self.element_is_visible(self.locators.TOOL_TIPS_INNERS)
+        text = tool_tip_text.text
+        return text
+
+    def check_tool_tips(self):
+        tool_tip_text_button = self.get_text_from_tips(self.locators.BUTTON, self.locators.TOOLTIP_BUTTON)
+        tool_tip_text_field = self.get_text_from_tips(self.locators.INPUT, self.locators.TOOLTIP_INPUT)
+        tool_tip_text_contrary = self.get_text_from_tips(self.locators.CONTRARY_LINK, self.locators.CONTRARY_TOOLTIP)
+        tool_tip_text_section = self.get_text_from_tips(self.locators.SECTION_LINK, self.locators.SECTION_TOOLTIP)
+        return tool_tip_text_button, tool_tip_text_field, tool_tip_text_contrary, tool_tip_text_section
