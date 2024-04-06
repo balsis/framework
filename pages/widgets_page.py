@@ -3,7 +3,7 @@ import random
 
 from generator.generator import generated_color, generated_date
 from locators.widgets_locators import AccordianPageLocators, AutoCompletePageLocators, DatePickerPageLocators, \
-    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators, ToolTipsPageLocators
+    SliderPageLocators, ProgressBarPageLocators, TabsPageLocators, ToolTipsPageLocators, MenuPageLocators
 from pages.base_page import BasePage
 from selenium.common.exceptions import TimeoutException
 from selenium.webdriver import Keys
@@ -175,3 +175,13 @@ class ToolTipsPage(BasePage):
         tool_tip_text_contrary = self.get_text_from_tips(self.locators.CONTRARY_LINK, self.locators.CONTRARY_TOOLTIP)
         tool_tip_text_section = self.get_text_from_tips(self.locators.SECTION_LINK, self.locators.SECTION_TOOLTIP)
         return tool_tip_text_button, tool_tip_text_field, tool_tip_text_contrary, tool_tip_text_section
+class MenuPage(BasePage):
+    locators = MenuPageLocators()
+
+    def check_menu(self):
+        menu_item_list = self.elements_are_present(self.locators.MENU)
+        data = []
+        for item in menu_item_list:
+            self.action_move_to_element(item)
+            data.append(item.text)
+        return data
