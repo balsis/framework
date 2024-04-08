@@ -1,6 +1,6 @@
 import random
-
-from locators.interactions_page_locators import SortablePageLocators
+import time
+from locators.interactions_page_locators import SortablePageLocators, SelectablePageLocators
 from pages.base_page import BasePage
 
 
@@ -30,3 +30,8 @@ class SortablePage(BasePage):
         self.action_drag_and_drop_to_element(item_what, item_where)
         order_after = self.get_sortable_items(self.locators.GRID_ITEM)
         return order_before, order_after
+
+
+class SelectablePage(BasePage):
+    locators = SelectablePageLocators()
+
