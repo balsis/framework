@@ -143,6 +143,7 @@ class DraggablePage(BasePage):
         drag_div = self.element_is_visible(self.locators.DRAG_ME)
         before_position, after_position = self.get_before_after_positions(drag_div)
         return before_position, after_position
+
     def get_before_after_positions(self, drag):
         self.action_drag_and_drop_by_offset(drag, random.randint(0, 50), random.randint(0, 50))
         before_position = drag.get_attribute('style')

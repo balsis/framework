@@ -52,6 +52,7 @@ class DraggablePageLocators:
     SIMPLE_TAB = ("xpath", "//a[@id='draggableExample-tab-simple']")
     DRAG_ME = ("xpath", "//div[@id='draggableExample-tabpane-simple']/div[@id='dragBox']")
     # Axis Restricted
+
     AXIS_TAB = ("xpath", "//a[@id='draggableExample-tab-axisRestriction']")
     ONLY_X = ("xpath", "//div[@id='restrictedX']")
     ONLY_Y = ("xpath", "//div[@id='restrictedY']")
