@@ -1,4 +1,5 @@
 import random
+import re
 import time
 from locators.interactions_page_locators import SortablePageLocators, SelectablePageLocators, ResizablePageLocators, \
     DroppablePageLocators, DraggablePageLocators
