@@ -29,8 +29,6 @@ class TestElements:
             check_box_page.click_random_checkbox()
             input_checkbox = check_box_page.get_checked_checkboxes()
             output_result = check_box_page.get_output_result()
-            print(input_checkbox)
-            print(output_result)
             assert input_checkbox == output_result, "Checkboxes have not been selected"
 
     @allure.feature("RadioButton")
